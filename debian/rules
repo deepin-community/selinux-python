@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+#
+#  # Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+BUILT_USING=$(shell dpkg-query -f '$${source:Package} (= $${source:Version}), ' -W "libsepol-dev")
+export PYTHON=python3
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@ --with python3
+
+override_dh_auto_build:
+	dh_auto_build
+	dh_auto_build -Dgui
+	dh_auto_build -Dsandbox
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/tmp
+	dh_auto_install -Dgui --destdir=debian/tmp
+	dh_auto_install -Dsandbox --destdir=debian/tmp
+
+override_dh_auto_test:
+
+override_dh_auto_clean:
+	dh_auto_clean
+	dh_auto_clean -Dgui
+	dh_auto_clean -Dsandbox
+
+override_dh_gencontrol:
+	dh_gencontrol -- -VBuilt-Using="$(BUILT_USING)"

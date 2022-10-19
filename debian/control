@@ -1,0 +1,174 @@
+Source: selinux-python
+Vcs-Git: https://salsa.debian.org/selinux-team/selinux-python.git
+Vcs-Browser: https://salsa.debian.org/selinux-team/selinux-python
+Priority: optional
+Section: utils
+Maintainer: Debian SELinux maintainers <selinux-devel@lists.alioth.debian.org>
+Uploaders: Laurent Bigonville <bigon@debian.org>,
+           Russell Coker <russell@coker.com.au>
+Standards-Version: 4.6.0
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               libcap-ng-dev,
+               libselinux1-dev (>= 3.3),
+               libsepol-dev (>= 3.3),
+               python3-dev (>= 3.2),
+Homepage: https://selinuxproject.org
+# The seunshare executable is not installed SETUID in the package,
+# this is done in the postinst script if the capabilities cannot be set.
+# There is no need to have (fake)root during the build.
+Rules-Requires-Root: no
+
+Package: policycoreutils-python-utils
+Architecture: all
+Depends: policycoreutils (>= 3.3),
+         python3-audit,
+         python3-selinux (>= 3.3),
+         python3-semanage (>= 3.3),
+         python3-sepolgen (= ${source:Version}),
+         python3-sepolicy (= ${source:Version}),
+         selinux-utils,
+         ${misc:Depends},
+         ${python3:Depends},
+         ${shlibs:Depends}
+Breaks: policycoreutils (<< 2.4)
+Replaces: policycoreutils (<< 2.4)
+Pre-Depends: ${misc:Pre-Depends}
+Description: SELinux core policy utilities (Python utilities)
+ Security-enhanced Linux is a patch of the Linux® kernel and a number
+ of utilities with enhanced security functionality designed to add
+ mandatory access controls to Linux.  The Security-enhanced Linux
+ kernel contains new architectural components originally developed to
+ improve the security of the Flask operating system. These
+ architectural components provide general support for the enforcement
+ of many kinds of mandatory access control policies, including those
+ based on the concepts of Type Enforcement®, Role-based Access Control,
+ and Multi-level Security.
+ .
+ This package contains the policycoreutils written in Python like semanage,
+ audit2why, audit2allow or chcat.
+
+Package: python3-sepolicy
+Architecture: all
+Depends: python3-selinux (>= 3.3),
+         python3-sepolgen (= ${source:Version}),
+         python3-setools (>= 4.4.0),
+         ${misc:Depends},
+         ${python3:Depends},
+         ${shlibs:Depends}
+Section: python
+Description: Python binding for SELinux Policy Analyses
+ This package contains a Python binding for SELinux Policy Analyses.
+
+Package: policycoreutils-gui
+Architecture: all
+Depends: gir1.2-glib-2.0,
+         gir1.2-gtk-3.0,
+         policycoreutils (>= 3.3),
+         policycoreutils-dbus (>= 3.3),
+         policycoreutils-dev (>= 3.3),
+         policykit-1,
+         python3-dbus,
+         python3-gi,
+         python3-selinux (>= 3.3),
+         python3-sepolicy (= ${source:Version}),
+         ${misc:Depends},
+         ${python3:Depends}
+Description: SELinux core policy utilities (graphical utilities)
+ Security-enhanced Linux is a patch of the Linux® kernel and a number
+ of utilities with enhanced security functionality designed to add
+ mandatory access controls to Linux.  The Security-enhanced Linux
+ kernel contains new architectural components originally developed to
+ improve the security of the Flask operating system. These
+ architectural components provide general support for the enforcement
+ of many kinds of mandatory access control policies, including those
+ based on the concepts of Type Enforcement®, Role-based Access Control,
+ and Multi-level Security.
+ .
+ This package contains the system-config-selinux and the selinux-polgengui
+ utilities.
+
+Package: policycoreutils-dev
+Architecture: linux-any
+Section: devel
+Depends: binutils,
+         policycoreutils (>= 3.3),
+         python3-selinux (>= 3.3),
+         python3-sepolgen (= ${source:Version}),
+         python3-sepolicy (= ${source:Version}),
+         semodule-utils (>= 3.3),
+         ${misc:Depends},
+         ${python3:Depends},
+         ${shlibs:Depends}
+Breaks: policycoreutils (<< 2.4)
+Replaces: policycoreutils (<< 2.4)
+Built-Using: ${Built-Using}
+Description: SELinux core policy utilities (development utilities)
+ Security-enhanced Linux is a patch of the Linux® kernel and a number
+ of utilities with enhanced security functionality designed to add
+ mandatory access controls to Linux.  The Security-enhanced Linux
+ kernel contains new architectural components originally developed to
+ improve the security of the Flask operating system. These
+ architectural components provide general support for the enforcement
+ of many kinds of mandatory access control policies, including those
+ based on the concepts of Type Enforcement®, Role-based Access Control,
+ and Multi-level Security.
+ .
+ This package contains the management tools used to develop policy in an
+ SELinux environment.
+
+Package: policycoreutils-sandbox
+Architecture: linux-any
+Depends: dbus (>= 1.8),
+         gir1.2-gtk-3.0,
+         libcap2-bin,
+         policycoreutils,
+         python3,
+         python3-gi,
+         x11-xserver-utils,
+         xserver-xephyr,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: openbox | x-window-manager
+Description: SELinux core policy utilities (graphical sandboxes)
+ Security-enhanced Linux is a patch of the Linux® kernel and a number
+ of utilities with enhanced security functionality designed to add
+ mandatory access controls to Linux.  The Security-enhanced Linux
+ kernel contains new architectural components originally developed to
+ improve the security of the Flask operating system. These
+ architectural components provide general support for the enforcement
+ of many kinds of mandatory access control policies, including those
+ based on the concepts of Type Enforcement®, Role-based Access Control,
+ and Multi-level Security.
+ .
+ This package contains the scripts to create graphical sandboxes.
+ .
+ This package requires an additional custom policy that is not present in
+ Debian.
+
+Package: python3-sepolgen
+Architecture: all
+Depends: checkpolicy (>= 3.3),
+         make,
+         python3-selinux (>= 3.3),
+         python3-setools (>= 4.4.0),
+         semodule-utils (>= 3.3),
+         ${misc:Depends},
+         ${python3:Depends}
+Recommends: selinux-policy-dev
+Breaks: python-sepolgen (<< 2.6)
+Replaces: python-sepolgen (<< 2.6)
+Section: python
+Description: Python3 module used in SELinux policy generation
+ This package contains a Python3 module that forms the core of the modern
+ audit2allow (which is a part of the package policycoreutils).
+ .
+ The sepolgen library is structured to give flexibility to the application
+ using it. The library contains: Reference Policy Representation,
+ which are Objects for representing policies and the reference policy
+ interfaces. Secondly, it has objects and algorithms for representing
+ access and sets of access in an abstract way and searching that
+ access. It also has a parser for reference policy "headers". It
+ contains infrastructure for parsing SELinux related messages as
+ produced by the audit system. It has facilities for generating policy
+ based on required access.
