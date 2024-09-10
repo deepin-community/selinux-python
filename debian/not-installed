@@ -1,9 +1,9 @@
 etc/sysconfig/sandbox
 usr/bin/selinux-polgengui
 usr/bin/system-config-selinux
-usr/lib/python*/site-packages/sepolicy/__pycache__/*
-usr/lib/python*/site-packages/sepolicy/help/__init__.py
-usr/lib/python*/site-packages/sepolicy/help/__pycache__/*
+usr/lib/python*/*-packages/sepolicy/__pycache__/*
+usr/lib/python*/*-packages/sepolicy/help/__init__.py
+usr/lib/python*/*-packages/sepolicy/help/__pycache__/*
 usr/share/applications/selinux-polgengui.desktop
 usr/share/applications/system-config-selinux.desktop
 usr/share/icons/hicolor/24x24/apps/system-config-selinux.png
@@ -13,6 +13,7 @@ usr/share/man/man8/system-config-selinux.8
 usr/share/man/ru/man5/sandbox.5
 usr/share/man/ru/man8/selinux-polgengui.8
 usr/share/man/ru/man8/system-config-selinux.8
+usr/share/locale/*/LC_MESSAGES/selinux-gui.mo
 usr/share/pixmaps/system-config-selinux.png
 usr/share/polkit-1/actions/org.selinux.config.policy
 usr/share/system-config-selinux/booleansPage.py

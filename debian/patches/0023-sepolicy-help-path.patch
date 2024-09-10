@@ -4,15 +4,15 @@ Forwarded: not-needed
 
 --- a/sepolicy/sepolicy/gui.py
 +++ b/sepolicy/sepolicy/gui.py
-@@ -76,7 +76,6 @@ def cmp(a, b):
+@@ -77,7 +77,6 @@ def cmp(a, b):
          return 1
      return (a > b) - (a < b)
  
--import distutils.sysconfig
+-import sysconfig
  ADVANCED_LABEL = (_("Advanced >>"), _("Advanced <<"))
  ADVANCED_SEARCH_LABEL = (_("Advanced Search >>"), _("Advanced Search <<"))
  OUTBOUND_PAGE = 0
-@@ -101,6 +100,8 @@ SYSTEM_PAGE = 7
+@@ -102,6 +101,8 @@ SYSTEM_PAGE = 7
  FILE_EQUIV_PAGE = 8
  START_PAGE = 9
  
@@ -21,11 +21,11 @@ Forwarded: not-needed
  keys = ["boolean", "fcontext", "fcontext-equiv", "port", "login", "user", "module", "node", "interface"]
  
  DISABLED_TEXT = _("""<small>
-@@ -129,7 +130,7 @@ class SELinuxGui():
+@@ -130,7 +131,7 @@ class SELinuxGui():
          self.application = app
          self.filter_txt = ""
          builder = Gtk.Builder()  # BUILDER OBJ
--        self.code_path = distutils.sysconfig.get_python_lib(plat_specific=False) + "/sepolicy/"
+-        self.code_path = sysconfig.get_path('purelib', vars={'base': "/usr"}) + "/sepolicy/"
 +        self.code_path = SEPOLICY_SHARED_FILE_PATH
          glade_file = self.code_path + "sepolicy.glade"
          builder.add_from_file(glade_file)

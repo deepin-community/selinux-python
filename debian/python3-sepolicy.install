@@ -1,4 +1,4 @@
-usr/lib/python*/*-packages/sepolicy-*.egg-info
+usr/lib/python*/*-packages/sepolicy-*.dist-info
 usr/lib/python*/*-packages/sepolicy/__init__.py
 usr/lib/python*/*-packages/sepolicy/booleans.py
 usr/lib/python*/*-packages/sepolicy/communicate.py
