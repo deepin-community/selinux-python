@@ -6,6 +6,7 @@
 
 BUILT_USING=$(shell dpkg-query -f '$${source:Package} (= $${source:Version}), ' -W "libsepol-dev")
 export PYTHON=python3
+export DEB_PYTHON_INSTALL_LAYOUT=deb
 
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 

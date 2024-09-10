@@ -5,6 +5,7 @@ usr/bin/sandbox
 usr/lib/python*/*-packages/seobject.py
 usr/sbin/semanage
 usr/share/bash-completion/completions/semanage
+usr/share/locale/*/LC_MESSAGES/selinux-sandbox.mo
 usr/share/man/man1/audit2allow.1
 usr/share/man/man1/audit2why.1
 usr/share/man/man8/chcat.8

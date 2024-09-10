@@ -4,7 +4,7 @@ Forwarded: not-needed
 
 --- a/sandbox/sandbox
 +++ b/sandbox/sandbox
-@@ -268,7 +268,7 @@ class Sandbox:
+@@ -270,7 +270,7 @@ class Sandbox:
              copyfile(f, "/tmp", self.__tmpdir)
              copyfile(f, "/var/tmp", self.__tmpdir)
  
@@ -13,7 +13,7 @@ Forwarded: not-needed
          execfile = self.__homedir + "/.sandboxrc"
          fd = open(execfile, "w+")
          if self.__options.session:
-@@ -362,7 +362,7 @@ sandbox [-h] [-l level ] [-[X|M] [-H hom
+@@ -369,7 +369,7 @@ sandbox [-h] [-l level ] [-[X|M] [-H hom
  
          parser.add_option("-W", "--windowmanager", dest="wm",
                            type="string",
@@ -24,7 +24,7 @@ Forwarded: not-needed
          parser.add_option("-l", "--level", dest="level",
 --- a/sandbox/sandbox.8
 +++ b/sandbox/sandbox.8
-@@ -77,7 +77,7 @@ Specifies the windowsize when creating a
+@@ -80,7 +80,7 @@ Specifies the windowsize when creating a
  \fB\-W\fR \fB\-\-windowmanager\fR
  Select alternative window manager to run within 
  .B sandbox \-X.

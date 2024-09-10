@@ -1,2 +1,3 @@
 usr/lib/python*/*-packages/sepolgen/
+usr/share/locale/*/LC_MESSAGES/selinux-python.mo
 var/lib/sepolgen/perm_map
