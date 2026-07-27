@@ -1,2 +1,4 @@
 0023-sepolicy-help-path.patch
 sandbox-x-window-manager.patch
+CVE-2026-59677.patch
+CVE-2026-59676.patch
