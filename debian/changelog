@@ -1,3 +1,15 @@
+selinux-python (3.5-1deepin2) unstable; urgency=medium
+
+  * fix(cve): CVE-2026-59676
+
+ -- deepin-ci-robot <packages@deepin.org>  Mon, 27 Jul 2026 10:19:03 +0800
+
+selinux-python (3.5-1deepin1) unstable; urgency=medium
+
+  * fix(cve): CVE-2026-59677
+
+ -- deepin-ci-robot <packages@deepin.org>  Mon, 27 Jul 2026 00:06:45 +0800
+
 selinux-python (3.5-1) unstable; urgency=medium
 
   * New upstream release
